@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
+import { Link } from "react-router-dom";
 
 const ProductList = () => {
   const { products } = useContext(ProductContext);
@@ -16,6 +17,7 @@ const ProductList = () => {
                 <p>Precio: ${product.price}</p>
                 <p>{product.description}</p>
                 <img src={product.image} alt={product.name} width="100" />
+                <Link to={`/editar/${product.id}`}>Editar</Link>
               </li>
             ))}
           </ul>

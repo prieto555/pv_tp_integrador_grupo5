@@ -8,9 +8,17 @@ export const ProductProvider = ({ children }) => {
   const addProduct = (newProduct) => {
     setProducts([...products, newProduct]);
   };
-
+  const findProduct = (id) => {
+    const productFind = products.find(prod => prod.id == id);
+    return productFind;
+  };
+  const editProducts = (id, formulario)=>{
+    console.log(formulario);
+    
+    setProducts(products.map((a) => (a.id === id ? a : formulario)));
+  }
   return (
-    <ProductContext.Provider value={{ products, addProduct }}>
+    <ProductContext.Provider value={{ findProduct, editProducts, products, addProduct }}>
       {children}
     </ProductContext.Provider>
   );
