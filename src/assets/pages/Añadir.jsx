@@ -10,6 +10,7 @@ const Añadir = () => {
     description: "",
     category: "",
     image: "",
+    active: true,
   });
 
   const handleChange = (e) => {
