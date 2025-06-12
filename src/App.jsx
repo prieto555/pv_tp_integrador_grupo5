@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Añadir from "./assets/pages/Añadir";
 import { Inicio } from "./assets/pages/Inicio";
 import ProductList from "./assets/pages/ProductList";
-import Navbar from "./assets/components/Navbar";
+import Navbar_function from "./assets/components/Navbar";
 import { Footer } from "./assets/components/Footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Editar } from "./assets/pages/Editar";
@@ -14,7 +14,7 @@ const App = () => {
   return (
     <>
       <ProductProvider>
-        <Navbar />
+        <Navbar_function/>
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/añadir" element={<Añadir />} />
