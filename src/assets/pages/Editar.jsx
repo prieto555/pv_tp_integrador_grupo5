@@ -8,7 +8,7 @@ export const Editar = () => {
     const { editProducts, findProduct } = useContext(ProductContext);
     const navigate = useNavigate();
     let params = useParams();
-    const product = findProduct(params.id)
+    const product = findProduct(parseInt(params.id));
     
     const [formulario, setFormulario] = useState({ ...product });
     
