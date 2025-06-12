@@ -8,6 +8,7 @@ import { Footer } from "./assets/components/Footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Editar } from "./assets/pages/Editar";
 import { Contacto } from "./assets/pages/Contacto";
+import { Detalles } from "./assets/pages/Detalles";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/lista-productos" element={<ProductList />} />
           <Route path="/editar/:id" element={<Editar />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/detalles/:id" element={<Detalles/>} />
         </Routes>
         <Footer />
       </ProductProvider>

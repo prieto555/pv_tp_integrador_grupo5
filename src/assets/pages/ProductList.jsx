@@ -1,17 +1,19 @@
 import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
 import { Link } from "react-router-dom";
+import { Eliminar } from "./Eliminar";
 
 const ProductList = () => {
   const { products } = useContext(ProductContext);
+  const activeProducts = products.filter(product => product.active !== false);
   console.log(products, "Productos en la lista")
   return (
     <div>
-      {products.length > 0 ? (
+      {activeProducts.length > 0 ? (
         <>
           <h2>Lista de Productos</h2>
           <ul>
-            {products.map((product) => (
+            {activeProducts.map((product) => (
               <li key={product.id}>
                 <div className="card" style={{ width: '18rem' }}>
                   <img className="card-img-top" src={product.image} alt="No imagen" width="100" />
@@ -21,7 +23,9 @@ const ProductList = () => {
                       <span>Precio: ${product.price}</span>
                       <span>{product.description}</span>
                     </p>
+                    <Eliminar id={product.id} />
                     <Link className="btn btn-primary" to={`/editar/${product.id}`}>Editar</Link>
+                    <Link to={`/detalles/${product.id}`}>Ver detalles</Link>
                   </div>
                 </div>
               </li>
