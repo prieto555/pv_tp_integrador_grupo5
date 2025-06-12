@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
 import { Link } from "react-router-dom";
 import { Eliminar } from "./Eliminar";
-
+import Image from 'react-bootstrap/Image';
 const ProductList = () => {
   const { products } = useContext(ProductContext);
   const activeProducts = products.filter(product => product.active !== false);
@@ -14,9 +14,9 @@ const ProductList = () => {
           <h2>Lista de Productos</h2>
           <ul>
             {activeProducts.map((product) => (
-              <li key={product.id}>
+              <div key={product.id}>
                 <div className="card" style={{ width: '18rem' }}>
-                  <img className="card-img-top" src={product.image} alt="No imagen" width="100" />
+                  <Image  className="card-img-top" src={product.image} alt="No imagen" width="100" thumbnail/>
                   <div className="card-body">
                     <h5 className="card-title">{product.name}</h5>
                     <p className="card-text">
@@ -28,7 +28,7 @@ const ProductList = () => {
                     <Link to={`/detalles/${product.id}`}>Ver detalles</Link>
                   </div>
                 </div>
-              </li>
+              </div>
 
             ))}
           </ul>
