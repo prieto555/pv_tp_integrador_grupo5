@@ -3,10 +3,11 @@ import { ProductContext } from "../context/ProductContext";
 import { Link } from "react-router-dom";
 import { Eliminar } from "./Eliminar";
 import Image from 'react-bootstrap/Image';
+
 const ProductList = () => {
   const { products } = useContext(ProductContext);
-  const activeProducts = products.filter(product => product.active !== false);
   console.log(products, "Productos en la lista")
+  const activeProducts = products.filter(product => product.active !== false);
   return (
     <div>
       {activeProducts.length > 0 ? (
@@ -16,9 +17,9 @@ const ProductList = () => {
             {activeProducts.map((product) => (
               <div key={product.id}>
                 <div className="card" style={{ width: '18rem' }}>
-                  <Image  className="card-img-top" src={product.image} alt="No imagen" width="100" thumbnail/>
+                  <Image className="card-img-top" src={product.image} alt="No imagen" width="100" thumbnail />
                   <div className="card-body">
-                    <h5 className="card-title">{product.name}</h5>
+                    <h5 className="card-title">{product.title}</h5>
                     <p className="card-text">
                       <span>Precio: ${product.price}</span>
                       <span>{product.description}</span>
