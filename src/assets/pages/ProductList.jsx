@@ -5,9 +5,10 @@ import { Eliminar } from "./Eliminar";
 import Image from 'react-bootstrap/Image';
 
 const ProductList = () => {
-  const { products } = useContext(ProductContext);
+  const { products,toggleFavorite } = useContext(ProductContext);
   console.log(products, "Productos en la lista")
   const activeProducts = products.filter(product => product.active !== false);
+  
   return (
     <div>
       {activeProducts.length > 0 ? (
@@ -22,11 +23,13 @@ const ProductList = () => {
                     <h5 className="card-title">{product.title}</h5>
                     <p className="card-text">
                       <span>Precio: ${product.price}</span>
-                      <span>{product.description}</span>
                     </p>
                     <Eliminar id={product.id} />
                     <Link className="btn btn-primary" to={`/editar/${product.id}`}>Editar</Link>
                     <Link to={`/detalles/${product.id}`}>Ver detalles</Link>
+                    <button onClick={() => toggleFavorite(product.id)}>
+                              {product.favorite ? ' Quitar de favoritos' : 'Agregar a favoritos'}
+                    </button>
                   </div>
                 </div>
               </div>

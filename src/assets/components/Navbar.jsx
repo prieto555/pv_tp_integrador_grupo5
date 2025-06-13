@@ -75,6 +75,7 @@ function Navbar_function() {
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to="/">Inicio</Nav.Link>
                         <Nav.Link as={Link} to="/añadir">Añadir</Nav.Link>
+                        <Nav.Link as={Link} to="/favoritos">Favoritos</Nav.Link>
                         <NavDropdown title="Opciones" id="basic-nav-dropdown">
                             <NavDropdown.Item >Contactos</NavDropdown.Item>
                             <NavDropdown.Item >Sesión</NavDropdown.Item>
