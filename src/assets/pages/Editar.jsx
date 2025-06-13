@@ -29,7 +29,7 @@ export const Editar = () => {
                 <h2>Modificar Producto</h2>
                 <div>
                     <label>Nombre</label>
-                    <input type="text" name="name" value={formulario.name || ""} onChange={handleChange} required />
+                    <input type="text" name="title" value={formulario.title || ""} onChange={handleChange} required />
                 </div>
                 <div>
                     <label>Precio</label>

@@ -5,7 +5,7 @@ const Añadir = () => {
   const { addProduct } = useContext(ProductContext);
   const [product, setProduct] = useState({
     id: "",
-    name: "",
+    title: "",
     price: "",
     description: "",
     category: "",
@@ -20,14 +20,14 @@ const Añadir = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addProduct({ ...product, id: Date.now() });
-    setProduct({ id: "", name: "", price: "", description: "", category: "", image: "" });
+    setProduct({ id: "", title: "", price: "", description: "", category: "", image: "" });
   };
 
   return (
     <>
     <h1>Agregar producto</h1>
     <form onSubmit={handleSubmit}>
-      <input type="text" name="name" placeholder="Nombre" value={product.name} onChange={handleChange} required />
+      <input type="text" name="title" placeholder="Nombre" value={product.title} onChange={handleChange} required />
       <input type="number" name="price" placeholder="Precio" value={product.price} onChange={handleChange} required />
       <input type="text" name="description" placeholder="Descripción" value={product.description} onChange={handleChange} required />
       <input type="text" name="category" placeholder="Categoría" value={product.category} onChange={handleChange} required />
