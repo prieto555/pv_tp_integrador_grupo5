@@ -9,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Editar } from "./assets/pages/Editar";
 import { Contacto } from "./assets/pages/Contacto";
 import { Detalles } from "./assets/pages/Detalles";
-
 const App = () => {
   return (
     <>
