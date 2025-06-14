@@ -10,6 +10,7 @@ import { Editar } from "./assets/pages/Editar";
 import { Contacto } from "./assets/pages/Contacto";
 import { Detalles } from "./assets/pages/Detalles";
 import { Favoritos } from "./assets/pages/Favoritos";
+import { Papelera } from "./assets/pages/Papelera";
 const App = () => {
   return (
     <>
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/detalles/:id" element={<Detalles/>} />
           <Route path="/favoritos" element={<Favoritos/>} />
+          <Route path="/papelera" element={<Papelera/>}/>
         </Routes>
         <Footer />
       </ProductProvider>

@@ -29,7 +29,7 @@ export const ProductProvider = ({ children }) => {
 
   const handleDeleteProduct = (id) => {
     setProducts(products.map(product =>
-      product.id === id ? { ...product, active: false } : product
+      product.id === id ? { ...product, active: !product.active } : product
     ));
   };
 

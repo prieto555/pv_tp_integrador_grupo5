@@ -54,6 +54,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useGetProducts } from "../hooks/useGetProducts";
+import { FaTrash } from "react-icons/fa";
 
 function Navbar_function() {
     const { error, loading } = useGetProducts();
@@ -85,6 +86,9 @@ function Navbar_function() {
                                 Separated link
                             </NavDropdown.Item> */}
                         </NavDropdown>
+                         <Nav.Link as={Link} to="/Papelera">
+                         <FaTrash size={20} /> Papelera
+                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
