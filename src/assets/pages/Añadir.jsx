@@ -11,6 +11,7 @@ const Añadir = () => {
     category: "",
     image: "",
     active: true,
+    favorite: false,
   });
 
   const handleChange = (e) => {

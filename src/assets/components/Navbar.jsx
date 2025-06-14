@@ -54,6 +54,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useGetProducts } from "../hooks/useGetProducts";
+import { FaTrash } from "react-icons/fa";
 
 function Navbar_function() {
     const { error, loading } = useGetProducts();
@@ -75,6 +76,7 @@ function Navbar_function() {
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to="/">Inicio</Nav.Link>
                         <Nav.Link as={Link} to="/añadir">Añadir</Nav.Link>
+                        <Nav.Link as={Link} to="/favoritos">Favoritos</Nav.Link>
                         <NavDropdown title="Opciones" id="basic-nav-dropdown">
                             <NavDropdown.Item >Contactos</NavDropdown.Item>
                             <NavDropdown.Item >Sesión</NavDropdown.Item>
@@ -84,6 +86,9 @@ function Navbar_function() {
                                 Separated link
                             </NavDropdown.Item> */}
                         </NavDropdown>
+                         <Nav.Link as={Link} to="/Papelera">
+                         <FaTrash size={20} /> Papelera
+                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
