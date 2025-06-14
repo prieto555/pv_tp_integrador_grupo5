@@ -10,12 +10,13 @@ import { Editar } from "./assets/pages/Editar";
 import { Contacto } from "./assets/pages/Contacto";
 import { Detalles } from "./assets/pages/Detalles";
 import { Favoritos } from "./assets/pages/Favoritos";
+import { ErrorPage } from "./assets/pages/ErrorPage";
 import { Papelera } from "./assets/pages/Papelera";
 const App = () => {
   return (
     <>
       <ProductProvider>
-        <Navbar_function/>
+        <Navbar_function />
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/añadir" element={<Añadir />} />
@@ -25,6 +26,8 @@ const App = () => {
           <Route path="/detalles/:id" element={<Detalles/>} />
           <Route path="/favoritos" element={<Favoritos/>} />
           <Route path="/papelera" element={<Papelera/>}/>
+          <Route path="/*" element={<ErrorPage/>} />
+
         </Routes>
         <Footer />
       </ProductProvider>

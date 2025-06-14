@@ -16,13 +16,13 @@ export const Detalles = () => {
         <div style={{ padding: "20px" }}>
             <h2>Detalles del Producto</h2>
             <div>
-                <p><strong>Nombre:</strong> {product.name}</p>
+                <p><strong>Nombre:</strong> {product.title}</p>
                 <p><strong>Precio:</strong> ${product.price}</p>
                 <p><strong>Descripción:</strong> {product.description}</p>
                 <p><strong>Categoría:</strong> {product.category}</p>
                 <img 
                     src={product.image} 
-                    alt={product.name} 
+                    alt={product.title} 
                     style={{ width: "200px", height: "auto" }} 
                 />
             </div>

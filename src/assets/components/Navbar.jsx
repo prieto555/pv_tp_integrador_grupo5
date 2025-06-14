@@ -78,7 +78,7 @@ function Navbar_function() {
                         <Nav.Link as={Link} to="/añadir">Añadir</Nav.Link>
                         <Nav.Link as={Link} to="/favoritos">Favoritos</Nav.Link>
                         <NavDropdown title="Opciones" id="basic-nav-dropdown">
-                            <NavDropdown.Item >Contactos</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/contacto">Contactos</NavDropdown.Item>
                             <NavDropdown.Item >Sesión</NavDropdown.Item>
                             {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                             <NavDropdown.Divider />
