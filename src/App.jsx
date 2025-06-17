@@ -1,4 +1,3 @@
-import { ProductProvider } from "./assets/context/ProductContext";
 import { Route, Routes } from "react-router-dom";
 import Añadir from "./assets/pages/Añadir";
 import { Inicio } from "./assets/pages/Inicio";
@@ -12,25 +11,25 @@ import { Detalles } from "./assets/pages/Detalles";
 import { Favoritos } from "./assets/pages/Favoritos";
 import { ErrorPage } from "./assets/pages/ErrorPage";
 import { Papelera } from "./assets/pages/Papelera";
+import { Login } from "./assets/components/Login";
 const App = () => {
   return (
     <>
-      <ProductProvider>
-        <Navbar_function />
-        <Routes>
-          <Route path="/" element={<Inicio />} />
+      <Navbar_function />
+      <Routes>
+          <Route path="/" element={<Login/>}/>
+          <Route path="/inicio" element={<Inicio />} />
           <Route path="/añadir" element={<Añadir />} />
           <Route path="/lista-productos" element={<ProductList />} />
           <Route path="/editar/:id" element={<Editar />} />
           <Route path="/contacto" element={<Contacto />} />
-          <Route path="/detalles/:id" element={<Detalles/>} />
-          <Route path="/favoritos" element={<Favoritos/>} />
-          <Route path="/papelera" element={<Papelera/>}/>
-          <Route path="/*" element={<ErrorPage/>} />
-
-        </Routes>
-        <Footer />
-      </ProductProvider>
+          <Route path="/detalles/:id" element={<Detalles />} />
+          <Route path="/favoritos" element={<Favoritos />} />
+          <Route path="/papelera" element={<Papelera />} />
+          <Route path="/*" element={<ErrorPage />} />
+        
+      </Routes>
+      <Footer />
     </>
   );
 };
