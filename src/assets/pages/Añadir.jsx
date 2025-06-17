@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
+import { Form, Button, Container } from "react-bootstrap";
 
 const Añadir = () => {
   const { addProduct } = useContext(ProductContext);
@@ -21,21 +22,80 @@ const Añadir = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addProduct({ ...product, id: Date.now() });
-    setProduct({ id: "", title: "", price: "", description: "", category: "", image: "" });
+    setProduct({
+      id: "",
+      title: "",
+      price: "",
+      description: "",
+      category: "",
+      image: "",
+    });
   };
 
   return (
-    <>
-    <h1>Agregar producto</h1>
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="title" placeholder="Nombre" value={product.title} onChange={handleChange} required />
-      <input type="number" name="price" placeholder="Precio" value={product.price} onChange={handleChange} required />
-      <input type="text" name="description" placeholder="Descripción" value={product.description} onChange={handleChange} required />
-      <input type="text" name="category" placeholder="Categoría" value={product.category} onChange={handleChange} required />
-      <input type="text" name="image" placeholder="URL Imagen" value={product.image} onChange={handleChange} required />
-      <button type="submit">Añadir Producto</button>
-    </form>
-    </>
+    <Container className="mt-4">
+      <h1>Agregar producto</h1>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3">
+          <Form.Label>Nombre</Form.Label>
+          <Form.Control
+            type="text"
+            name="title"
+            value={product.title}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formPrice">
+          <Form.Label>Precio</Form.Label>
+          <Form.Control
+            type="number"
+            name="price"
+            value={product.price}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Descripción</Form.Label>
+          <Form.Control
+            type="text"
+            name="description"
+            value={product.description}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" >
+          <Form.Label>Categoría</Form.Label>
+          <Form.Control
+            type="text"
+            name="category"
+            value={product.category}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" >
+          <Form.Label>URL Imagen</Form.Label>
+          <Form.Control
+            type="text"
+            name="image"
+            value={product.image}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
+
+        <Button variant="primary" type="submit">
+          Añadir Producto
+        </Button>
+      </Form>
+    </Container>
   );
 };
 
