@@ -8,7 +8,7 @@ import { FaTrash } from "react-icons/fa";
 import { useAuth } from '../hooks/useAuth.js';
 function Navbar_function() {
     const { error, loading } = useGetProducts();
-    const { login, isAuthenticated, user,logout } = useAuth();
+    const { login, isAuthenticated, user, logout } = useAuth();
     if (!isAuthenticated) return null;
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
@@ -27,15 +27,21 @@ function Navbar_function() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to="/inicio">Inicio</Nav.Link>
-                        {isAuthenticated && user?.rol === 'ADMINISTRATIVO' && (<Nav.Link as={Link} to="/añadir">Añadir</Nav.Link>)}
+
+
                         <Nav.Link as={Link} to="/favoritos">Favoritos</Nav.Link>
+
+                        {user?.rol === 'ADMINISTRATIVO' && (
+                            <>
+                                <Nav.Link as={Link} to="/añadir">Añadir</Nav.Link>
+                                <Nav.Link as={Link} to="/Papelera">
+                                    <FaTrash size={20} /> Papelera
+                                </Nav.Link>
+                            </>)}
                         <NavDropdown title="Opciones" id="basic-nav-dropdown">
                             <NavDropdown.Item as={Link} to="/contacto">Contactos</NavDropdown.Item>
                             <NavDropdown.Item onClick={logout} as={Link} to="/" >Cerrar Sesión</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link as={Link} to="/Papelera">
-                            <FaTrash size={20} /> Papelera
-                        </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

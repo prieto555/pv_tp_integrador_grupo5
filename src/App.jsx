@@ -15,9 +15,11 @@ import { Login } from "./assets/components/Login";
 const App = () => {
   return (
     <>
-      <Navbar_function />
-      <Routes>
-          <Route path="/" element={<Login/>}/>
+      <div className="d-flex flex-column min-vh-100">
+        <Navbar_function />
+          <main className="flex-grow-1">
+        <Routes>
+          <Route path="/" element={<Login />} />
           <Route path="/inicio" element={<Inicio />} />
           <Route path="/añadir" element={<Añadir />} />
           <Route path="/lista-productos" element={<ProductList />} />
@@ -27,10 +29,13 @@ const App = () => {
           <Route path="/favoritos" element={<Favoritos />} />
           <Route path="/papelera" element={<Papelera />} />
           <Route path="/*" element={<ErrorPage />} />
-        
-      </Routes>
-      <Footer />
+
+        </Routes>
+        </main>
+        <Footer />
+      </div >
     </>
+
   );
 };
 export default App;

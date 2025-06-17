@@ -20,10 +20,11 @@ export const Detalles = () => {
                 <p><strong>Precio:</strong> ${product.price}</p>
                 <p><strong>Descripción:</strong> {product.description}</p>
                 <p><strong>Categoría:</strong> {product.category}</p>
-                <img 
-                    src={product.image} 
-                    alt={product.title} 
-                    style={{ width: "200px", height: "auto" }} 
+                <p><strong>Calificacion: </strong>{product.rating.rate}★ ({product.rating.count})</p>
+                <img
+                    src={product.image}
+                    alt={product.title}
+                    style={{ width: "200px", height: "auto" }}
                 />
             </div>
         </div>

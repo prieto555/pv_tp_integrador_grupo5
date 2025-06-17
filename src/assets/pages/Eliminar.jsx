@@ -1,12 +1,14 @@
 import React from 'react'
 import { useContext } from 'react'
 import { ProductContext } from '../context/ProductContext'
+import Button from "react-bootstrap/Button";
 
 export const Eliminar = ({ id }) => {
-    const { handleDeleteProduct } = useContext(ProductContext);
+  const { handleDeleteProduct } = useContext(ProductContext);
   return (
     <>
-        <button onClick={() => handleDeleteProduct(id)}>Eliminar</button>
+      <Button variant="danger"
+        onClick={() => handleDeleteProduct(id)}>Eliminar</Button >
     </>
   )
 }
