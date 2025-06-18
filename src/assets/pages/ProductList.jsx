@@ -2,9 +2,7 @@ import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
 import { Link } from "react-router-dom";
 import { Eliminar } from "./Eliminar";
-import Image from 'react-bootstrap/Image';
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import { Card, Button, Badge } from "react-bootstrap";
 import { useAuth } from '../hooks/useAuth.js';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 
@@ -27,14 +25,17 @@ const ProductList = () => {
             style={{ height: '200px', objectFit: 'cover' }}
           />
           <Card.Body>
+            <Badge bg="primary">{product.category}</Badge>
             <Card.Title>{product.title}</Card.Title>
-            <Card.Text>Precio: ${product.price}</Card.Text>
+            <Card.Text>${product.price}</Card.Text>
             <div className="d-flex justify-content-between align-items-center">
               <div>
-                {user?.rol === 'ADMINISTRATIVO' && (<>
-                  <Eliminar id={product.id} />
-                  <Link className="btn btn-primary" to={`/editar/${product.id}`}>Editar</Link>
-                </>)}
+                {user?.rol === 'ADMINISTRATIVO' && (
+                  <>
+                    <Eliminar id={product.id} />
+                    <Link className="btn btn-primary" to={`/editar/${product.id}`}>Editar</Link>
+                  </>
+                )}
                 <div className="d-grid gap-2">
                   <Link className="btn btn-success" to={`/detalles/${product.id}`}>Ver detalles</Link>
                 </div>

@@ -1,9 +1,10 @@
 import { useState, useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Button, Container, Alert } from "react-bootstrap";
 
 const Añadir = () => {
   const { addProduct } = useContext(ProductContext);
+  const [loginError, setLoginError] = useState('');
   const [product, setProduct] = useState({
     id: "",
     title: "",
@@ -21,7 +22,14 @@ const Añadir = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!product.title || !product.price || !product.description || !product.category || !product.image) {
+      setLoginError('Por favor, complete todos los campos.');
+      return;
+    }
+    
     addProduct({ ...product, id: Date.now() });
+
     setProduct({
       id: "",
       title: "",
@@ -29,13 +37,17 @@ const Añadir = () => {
       description: "",
       category: "",
       image: "",
+      active: true,
+      favorite: false,
     });
+
+    setLoginError('');
   };
 
   return (
     <Container className="mt-4">
       <h1>Agregar producto</h1>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} noValidate>
         <Form.Group className="mb-3">
           <Form.Label>Nombre</Form.Label>
           <Form.Control
@@ -90,6 +102,11 @@ const Añadir = () => {
             required
           />
         </Form.Group>
+        {loginError && (
+          <Alert variant="danger" className="mt-3">
+            {loginError}
+          </Alert>
+        )}
 
         <Button variant="primary" type="submit">
           Añadir Producto

@@ -29,13 +29,16 @@ export const Login = () => {
 
         if (!username || !password) {
             setLoginError('Por favor, ingresa usuario y contraseña.');
-            return ;
+            return;
         }
 
-        const result = login({ username, password });
-
-        if (!result.success) {
-            setLoginError(result.message || 'Error de autenticación');
+        try {
+            const result = await login({ username, password });
+            if (!result.success) {
+                setLoginError(result.message || 'Error de autenticación');
+            }
+        } catch (error) {
+            setLoginError('Error al conectar con el servidor');
         }
     };
 
@@ -50,7 +53,7 @@ export const Login = () => {
                     <Card.Title as="h2" className="text-center mb-4">
                         Iniciar Sesión
                     </Card.Title>
-                    <Form onSubmit={handleSubmit}>
+                    <Form onSubmit={handleSubmit} noValidate>
                         <Form.Group className="mb-3" controlId="formBasicUsername">
                             <Form.Label>Usuario</Form.Label>
                             <Form.Control
