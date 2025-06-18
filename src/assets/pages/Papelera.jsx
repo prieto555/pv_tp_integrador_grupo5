@@ -11,7 +11,7 @@ export const Papelera = () =>{
      const reactivar = products.filter(product => product.active === false);
 
       if (reactivar.length === 0) {
-    return <div className="text-center mt-4 text-danger">No hay productos marcados como favoritos</div>;
+    return <h2 className="text-center mt-4 text-danger">No hay productos en la papelera</h2>;
   }
   return (
     <div className="d-flex flex-wrap justify-content-center gap-3">
