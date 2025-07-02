@@ -42,6 +42,12 @@ function Navbar_function() {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
+            <div className="d-flex flex-column">
+                <h6 className="mt-2">Bienvenido, {user.username}!</h6>
+                <h6 className="mt-2">Rol: {user.rol}</h6>
+            </div>
+
+
         </Navbar>
     );
 }
