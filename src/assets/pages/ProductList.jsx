@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Eliminar } from "./Eliminar";
 import { Card, Button, Badge } from "react-bootstrap";
 import { useAuth } from '../hooks/useAuth.js';
-import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
 
 
@@ -42,7 +42,7 @@ const ProductList = () => {
 
               </div>
               <Button variant="link" onClick={() => toggleFavorite(product.id)}>
-                {product.favorite ? <AiFillStar color="crimson" size={40} /> : <AiOutlineStar size={35} />}
+                {product.favorite ? <AiFillHeart color="crimson" size={40} /> : <AiOutlineHeart size={35} />}
               </Button>
 
             </div>
