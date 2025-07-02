@@ -28,6 +28,11 @@ const Añadir = () => {
       return;
     }
     
+    if (product.price <= 0){
+      setLoginError('El precio debe ser un número válido mayor a 0.');
+      return;
+    }
+
     addProduct({ ...product, id: Date.now() });
 
     setProduct({
@@ -66,6 +71,7 @@ const Añadir = () => {
             name="price"
             value={product.price}
             onChange={handleChange}
+            min="0"
             required
           />
         </Form.Group>

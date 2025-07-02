@@ -11,11 +11,11 @@ import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
 
 function Navbar_function() {
+    useGetProducts();
+    const { isAuthenticated, user, logout } = useAuth();
     const { deleteFavorito } = useContext(ProductContext);    
-
-    const { error, loading } = useGetProducts();
-    const { login, isAuthenticated, user, logout } = useAuth();
     if (!isAuthenticated) return null;
+  
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
