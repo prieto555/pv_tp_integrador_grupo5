@@ -7,8 +7,8 @@ import { useGetProducts } from "../hooks/useGetProducts";
 import { FaTrash } from "react-icons/fa";
 import { useAuth } from '../hooks/useAuth.js';
 function Navbar_function() {
-    const { error, loading } = useGetProducts();
-    const { login, isAuthenticated, user, logout } = useAuth();
+    useGetProducts();
+    const { isAuthenticated, user, logout } = useAuth();
     if (!isAuthenticated) return null;
     return (
         <Navbar expand="lg" className="bg-body-tertiary">

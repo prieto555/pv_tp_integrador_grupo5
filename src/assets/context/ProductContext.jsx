@@ -6,12 +6,12 @@ export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
 
   const toggleFavorite = (id) => {
-  setProducts(prev =>
-    prev.map(p =>
-      p.id === id ? { ...p, favorite: !p.favorite } : p
-    )
-  );
-};
+    setProducts(prev =>
+      prev.map(p =>
+        p.id === id ? { ...p, favorite: !p.favorite } : p
+      )
+    );
+  };
 
   const addProduct = (newProduct) => {
     setProducts([...products, newProduct]);
