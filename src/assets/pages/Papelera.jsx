@@ -1,16 +1,15 @@
 import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import { Card, Button } from "react-bootstrap";
 
 
 
-export const Papelera = () =>{
+export const Papelera = () => {
 
-     const { products, handleDeleteProduct } = useContext(ProductContext);
-     const reactivar = products.filter(product => product.active === false);
+  const { products, handleDeleteProduct } = useContext(ProductContext);
+  const reactivar = products.filter(product => product.active === false);
 
-      if (reactivar.length === 0) {
+  if (reactivar.length === 0) {
     return <h2 className="text-center mt-4 text-danger">No hay productos en la papelera</h2>;
   }
   return (
