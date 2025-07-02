@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
 import { Link } from "react-router-dom";
-import { AiOutlineStar, AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { Button, Card, Row, Container, Col } from "react-bootstrap";
 
 

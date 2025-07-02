@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
       }
     }
     catch (error) {
-      console.error('Ocurrió un error inesperado', error.message);
+      console.error("Ocurrió un error inesperado", error.message);
         setUser(null);
       setIsLoading(false);
       return {
