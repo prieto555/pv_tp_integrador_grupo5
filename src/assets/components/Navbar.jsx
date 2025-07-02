@@ -6,10 +6,16 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useGetProducts } from "../hooks/useGetProducts";
 import { FaTrash } from "react-icons/fa";
 import { useAuth } from '../hooks/useAuth.js';
+
+import { useContext } from "react";
+import { ProductContext } from "../context/ProductContext";
+
 function Navbar_function() {
     useGetProducts();
     const { isAuthenticated, user, logout } = useAuth();
+    const { deleteFavorito } = useContext(ProductContext);    
     if (!isAuthenticated) return null;
+  
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
@@ -40,7 +46,7 @@ function Navbar_function() {
                             </>)}
                         <NavDropdown title="Opciones" id="basic-nav-dropdown">
                             <NavDropdown.Item as={Link} to="/contacto">Contactos</NavDropdown.Item>
-                            <NavDropdown.Item onClick={logout} as={Link} to="/" >Cerrar Sesión</NavDropdown.Item>
+                            <NavDropdown.Item onClick={()=>{deleteFavorito();logout();}} as={Link} to="/"  >Cerrar Sesión</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>

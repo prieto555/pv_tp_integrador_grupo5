@@ -6,10 +6,17 @@ export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
 
   const toggleFavorite = (id) => {
-    setProducts(prev =>
-      prev.map(p =>
+
+    setProducts(nuevo =>
+      nuevo.map(p =>
         p.id === id ? { ...p, favorite: !p.favorite } : p
       )
+    );
+  };
+
+  const deleteFavorito = () => {
+    setProducts(products =>
+      products.map(p => ({ ...p, favorite: false }))
     );
   };
 
@@ -33,8 +40,9 @@ export const ProductProvider = ({ children }) => {
     ));
   };
 
+
   return (
-    <ProductContext.Provider value={{ findProduct, editProducts, products, addProduct, handleDeleteProduct, setProducts, toggleFavorite }}>
+    <ProductContext.Provider value={{ deleteFavorito, findProduct, editProducts, products, addProduct, handleDeleteProduct, setProducts, toggleFavorite }}>
       {children}
     </ProductContext.Provider>
   );
