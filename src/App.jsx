@@ -12,6 +12,7 @@ import { Favoritos } from "./assets/pages/Favoritos";
 import { ErrorPage } from "./assets/pages/ErrorPage";
 import { Papelera } from "./assets/pages/Papelera";
 import { Login } from "./assets/components/Login";
+import { ProtectorRutas } from "./assets/components/ProtectorRutas";
 const App = () => {
   return (
     <>
@@ -20,16 +21,15 @@ const App = () => {
           <main className="flex-grow-1">
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/inicio" element={<Inicio />} />
-          <Route path="/añadir" element={<Añadir />} />
-          <Route path="/lista-productos" element={<ProductList />} />
-          <Route path="/editar/:id" element={<Editar />} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="/detalles/:id" element={<Detalles />} />
-          <Route path="/favoritos" element={<Favoritos />} />
-          <Route path="/papelera" element={<Papelera />} />
-          <Route path="/*" element={<ErrorPage />} />
-
+          <Route path="/inicio" element={<ProtectorRutas rolesPermitidos={['ADMINISTRATIVO','CLIENTE']}><Inicio /></ProtectorRutas>} />
+          <Route path="/añadir" element={<ProtectorRutas rolesPermitidos={['ADMINISTRATIVO']}><Añadir /></ProtectorRutas>} />
+          <Route path="/lista-productos" element={<ProtectorRutas rolesPermitidos={['ADMINISTRATIVO','CLIENTE']}><ProductList /></ProtectorRutas>} />
+          <Route path="/editar/:id" element={<ProtectorRutas rolesPermitidos={['ADMINISTRATIVO']}><Editar /></ProtectorRutas>} />
+          <Route path="/contacto" element={<ProtectorRutas rolesPermitidos={['ADMINISTRATIVO','CLIENTE']}><Contacto /></ProtectorRutas>} />
+          <Route path="/detalles/:id" element={<ProtectorRutas rolesPermitidos={['ADMINISTRATIVO','CLIENTE']}><Detalles /></ProtectorRutas>} />
+          <Route path="/favoritos" element={<ProtectorRutas rolesPermitidos={['ADMINISTRATIVO','CLIENTE']}><Favoritos /></ProtectorRutas>} />
+          <Route path="/papelera" element={<ProtectorRutas rolesPermitidos={['ADMINISTRATIVO']}><Papelera /></ProtectorRutas>} />
+          <Route path="/*" element={<ProtectorRutas rolesPermitidos={['ADMINISTRATIVO','CLIENTE']}><ErrorPage /></ProtectorRutas>} />
         </Routes>
         </main>
         <Footer />

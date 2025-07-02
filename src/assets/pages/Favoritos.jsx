@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
 import { Link } from "react-router-dom";
-import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
+import { AiOutlineStar, AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { Button, Card, Row, Container, Col } from "react-bootstrap";
 
 
@@ -36,8 +36,8 @@ export const Favoritos = () => {
                 <div>
                   <Button variant="link" onClick={() => toggleFavorite(product.id)}>
                     {product.favorite
-                      ? <AiFillStar color="crimson" size={40} />
-                      : <AiOutlineStar size={35} />}
+                      ? <AiFillHeart color="crimson" size={40} />
+                      : <AiOutlineHeart size={35} />}
                   </Button>
                   <div className="d-grid gap-2">
                     <Link className="btn btn-success" to={`/detalles/${product.id}`}>

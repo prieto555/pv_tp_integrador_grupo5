@@ -8,6 +8,7 @@ import { ProductProvider } from './assets/context/ProductContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+
     <AuthProvider>
       <ProductProvider>
         <BrowserRouter>
